@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    /* margin: 0 auto; */
+    /* width: 1200px; */
+}
+
+header {
+    background: #ffdecb;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #4d4d4d;
+    padding-left: 10px;
+    position: sticky;
+    top: 0;
+}
+
+span i {
+    color: #4d4d4d;
+    
+}
+
+span i:hover{
+    transform: scale(1.2);
+    transition:0.5s;
+    cursor: pointer;
+    
+     
+}
+
+#plus-button {
+    border: 1px solid black;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-left: 20px;
+    padding: 2px;
+}
+
+nav {
+    background: #FFBF9B;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav div span{
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+nav div span:hover{
+    background :#ffdecb;
+    cursor: pointer;
+}
+
+label {
+    border: 2px black solid;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+
+}
+
+input {
+    padding-left: 5px;
+    background: none;
+    border: none;
+    outline: 0;
+}
+
+label i {
+    background: #f7e7e7;
+    border-radius: 0 15px 15px 0;
+    padding: 5px;
+}
+
+label i:hover{
+    cursor: pointer;
+    background: #d9d9d9;
+}
+
+main {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background: #c7c4c4;
+}
+
+footer {
+    color: rgb(197, 191, 191);
+    background: #575454;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+footer i {
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 7px;
+    margin: 20px;
+    
+}
+
+.editDelete :hover {
+    border: #E4DCCF;
+    background: #F9F5EB ;
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+}
+
