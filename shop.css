@@ -95,6 +95,7 @@ main {
     flex-wrap: wrap;
     justify-content: space-around;
     background: #c7c4c4;
+    padding-bottom: 14vh;
 }
 
 footer {
