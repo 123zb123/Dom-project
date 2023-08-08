@@ -39,140 +39,8 @@ data.forEach((element) => {
 goHome.addEventListener('click', () =>{
     location.reload();
 })
-
-//the button that send to the add product page
 addProduct.addEventListener('click', () => {
-    main.replaceChildren()
-    const nav = document.getElementById('nav')
-    nav.remove()
-    main.style.display = 'flex'
-    main.style.flexDirection = 'column'
-
-    const divUp = document.createElement('div')
-    main.appendChild(divUp)
-    divUp.style.display = 'flex'
-    divUp.style.alignItems = 'center'
-    divUp.style.justifyContent = 'center'
-    
-    const backHome = document.createElement('div')
-    backHome.innerHTML = '<i class="fa-solid fa-arrow-left"></i>'
-    backHome.style.cursor = 'pointer'
-    divUp.appendChild(backHome)
-    backHome.addEventListener('click', () => {
-        location.reload()
-    })
-    
-    const h1 = document.createElement('h1')
-    divUp.appendChild(h1)
-    h1.textContent = 'Add New Product'
-    h1.style.margin = '0 500px 0 500px'
-
-    const divInput = document.createElement('div')
-    main.appendChild(divInput)
-    divInput.style.alignSelf = 'center'
-    divInput.style.width = '600px'
-    divInput.style.height = '350px'
-    divInput.style.marginTop = '25px'
-    divInput.style.marginBottom = '14vh'
-    
-    const title = document.createElement('h4')
-    title.textContent = 'Title'
-    title.style.marginTop = '10px'
-    divInput.appendChild(title)
-
-    const titleInput = document.createElement('input')
-    divInput.appendChild(titleInput)
-    titleInput.style.background = 'white'
-    titleInput.style.width = '100%'
-    titleInput.style.height = '25px'
-    titleInput.placeholder = 'Add Title'
-    titleInput.style.alignSelf = 'center'
-
-    const category = document.createElement('h4')
-    category.textContent = 'Category'
-    category.style.marginTop = '10px'
-    divInput.appendChild(category)
-
-    const categoryInput = document.createElement('input')
-    divInput.appendChild(categoryInput)
-    categoryInput.style.background = 'white'
-    categoryInput.style.width = '100%'
-    categoryInput.style.height = '25px'
-    categoryInput.placeholder = 'Add Category'
-    categoryInput.style.alignSelf = 'center'
-
-    const price = document.createElement('h4')
-    price.textContent = 'Price'
-    price.style.marginTop = '10px'
-    divInput.appendChild(price)
-
-    const priceInput = document.createElement('input')
-    divInput.appendChild(priceInput)
-    priceInput.style.background = 'white'
-    priceInput.style.width = '100%'
-    priceInput.style.height = '25px'
-    priceInput.placeholder = 'Add Price'
-    priceInput.style.alignSelf = 'center'
-
-    const image = document.createElement('h4')
-    image.textContent = 'Image URL'
-    image.style.marginTop = '10px'
-    divInput.appendChild(image)
-
-    const imageInput = document.createElement('input')
-    divInput.appendChild(imageInput)
-    imageInput.style.background = 'white'
-    imageInput.style.width = '100%'
-    imageInput.style.height = '25px'
-    imageInput.placeholder = 'Add Image URL'
-    imageInput.style.alignSelf = 'center'
-
-    const quantity = document.createElement('h4')
-    quantity.textContent = 'Quantity'
-    quantity.style.marginTop = '10px'
-    divInput.appendChild(quantity)
-
-    const quantityInput = document.createElement('input')
-    divInput.appendChild(quantityInput)
-    quantityInput.style.background = 'white'
-    quantityInput.style.width = '100%'
-    quantityInput.style.height = '25px'
-    quantityInput.placeholder = 'Add Quantity'
-    quantityInput.style.alignSelf = 'center'
-
-    const description = document.createElement('h4')
-    description.textContent = 'Description'
-    description.style.marginTop = '10px'
-    divInput.appendChild(description)
-
-    const descriptionInput = document.createElement('input')
-    divInput.appendChild(descriptionInput)
-    descriptionInput.style.background = 'white'
-    descriptionInput.style.width = '100%'
-    descriptionInput.style.height = '60px'
-    descriptionInput.placeholder = 'Add Description'
-
-    const buttonSend = document.createElement('button')
-    buttonSend.textContent = 'ADD'
-    buttonSend.style.background = '#ffdecb'
-    buttonSend.style.width = '70px'
-    buttonSend.style.height = '30px'
-    buttonSend.style.marginTop = '10px'
-    divInput.appendChild(buttonSend)
-
-    buttonSend.addEventListener('click', () => {
-        data.push({
-            id: data.length + 1,
-            title: titleInput.value,
-            price: priceInput.value,
-            description: descriptionInput.value,
-            category: categoryInput.value,
-            image: imageInput.value
-        })
-        console.log(data)
-    })
-
-
+    addProductButton()
 })
 
 //men's category button
@@ -559,4 +427,136 @@ function editCard(IdElement){
         console.log(data)
     })
 
+}
+
+//the button that send to the add product page
+function addProductButton ()  {
+    main.replaceChildren()
+    const nav = document.getElementById('nav')
+    main.style.display = 'flex'
+    main.style.flexDirection = 'column'
+
+    const divUp = document.createElement('div')
+    main.appendChild(divUp)
+    divUp.style.display = 'flex'
+    divUp.style.alignItems = 'center'
+    divUp.style.justifyContent = 'center'
+    
+    const backHome = document.createElement('div')
+    backHome.innerHTML = '<i class="fa-solid fa-arrow-left"></i>'
+    backHome.style.cursor = 'pointer'
+    divUp.appendChild(backHome)
+    backHome.addEventListener('click', () => {
+        location.reload()
+    })
+    
+    const h1 = document.createElement('h1')
+    divUp.appendChild(h1)
+    h1.textContent = 'Add New Product'
+    h1.style.margin = '0 500px 0 500px'
+
+    const divInput = document.createElement('div')
+    main.appendChild(divInput)
+    divInput.style.alignSelf = 'center'
+    divInput.style.width = '600px'
+    divInput.style.height = '350px'
+    divInput.style.marginTop = '25px'
+    divInput.style.marginBottom = '14vh'
+    
+    const title = document.createElement('h4')
+    title.textContent = 'Title'
+    title.style.marginTop = '10px'
+    divInput.appendChild(title)
+
+    const titleInput = document.createElement('input')
+    divInput.appendChild(titleInput)
+    titleInput.style.background = 'white'
+    titleInput.style.width = '100%'
+    titleInput.style.height = '25px'
+    titleInput.placeholder = 'Add Title'
+    titleInput.style.alignSelf = 'center'
+
+    const category = document.createElement('h4')
+    category.textContent = 'Category'
+    category.style.marginTop = '10px'
+    divInput.appendChild(category)
+
+    const categoryInput = document.createElement('input')
+    divInput.appendChild(categoryInput)
+    categoryInput.style.background = 'white'
+    categoryInput.style.width = '100%'
+    categoryInput.style.height = '25px'
+    categoryInput.placeholder = 'Add Category'
+    categoryInput.style.alignSelf = 'center'
+
+    const price = document.createElement('h4')
+    price.textContent = 'Price'
+    price.style.marginTop = '10px'
+    divInput.appendChild(price)
+
+    const priceInput = document.createElement('input')
+    divInput.appendChild(priceInput)
+    priceInput.style.background = 'white'
+    priceInput.style.width = '100%'
+    priceInput.style.height = '25px'
+    priceInput.placeholder = 'Add Price'
+    priceInput.style.alignSelf = 'center'
+
+    const image = document.createElement('h4')
+    image.textContent = 'Image URL'
+    image.style.marginTop = '10px'
+    divInput.appendChild(image)
+
+    const imageInput = document.createElement('input')
+    divInput.appendChild(imageInput)
+    imageInput.style.background = 'white'
+    imageInput.style.width = '100%'
+    imageInput.style.height = '25px'
+    imageInput.placeholder = 'Add Image URL'
+    imageInput.style.alignSelf = 'center'
+
+    const quantity = document.createElement('h4')
+    quantity.textContent = 'Quantity'
+    quantity.style.marginTop = '10px'
+    divInput.appendChild(quantity)
+
+    const quantityInput = document.createElement('input')
+    divInput.appendChild(quantityInput)
+    quantityInput.style.background = 'white'
+    quantityInput.style.width = '100%'
+    quantityInput.style.height = '25px'
+    quantityInput.placeholder = 'Add Quantity'
+    quantityInput.style.alignSelf = 'center'
+
+    const description = document.createElement('h4')
+    description.textContent = 'Description'
+    description.style.marginTop = '10px'
+    divInput.appendChild(description)
+
+    const descriptionInput = document.createElement('input')
+    divInput.appendChild(descriptionInput)
+    descriptionInput.style.background = 'white'
+    descriptionInput.style.width = '100%'
+    descriptionInput.style.height = '60px'
+    descriptionInput.placeholder = 'Add Description'
+
+    const buttonSend = document.createElement('button')
+    buttonSend.textContent = 'ADD'
+    buttonSend.style.background = '#ffdecb'
+    buttonSend.style.width = '70px'
+    buttonSend.style.height = '30px'
+    buttonSend.style.marginTop = '10px'
+    divInput.appendChild(buttonSend)
+
+    buttonSend.addEventListener('click', () => {
+        data.push({
+            id: data.length + 1,
+            title: titleInput.value,
+            price: priceInput.value,
+            description: descriptionInput.value,
+            category: categoryInput.value,
+            image: imageInput.value
+        })
+        console.log(data)
+    })
 }
