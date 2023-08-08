@@ -1,20 +1,24 @@
 import data from './data.js'
 
-
+// main from html file
 let main = document.querySelector('main');
 
+//categories from the html
 const men = document.getElementById('Men')
 const women = document.getElementById('Women')
 const jewelery = document.getElementById('Jewelery')
 const electronics = document.getElementById('Electronics')
 const allProducts = document.getElementById('All Products')
 
+//icon plus '+' to add new product
 const addProduct = document.querySelector('#plus-button')
 const goHome = document.querySelector('#home-button')
 
+// icons from html, of the search
 const iconSerch = document.querySelector('#iconSerch')
 const serch = document.querySelector('#serch')
 
+//searce product
 iconSerch.addEventListener('click', () => {
     main.replaceChildren()
     data.forEach((element) => {
@@ -26,10 +30,11 @@ iconSerch.addEventListener('click', () => {
     serch.value = ''
 })
 
-
+//run hover the data of products
 data.forEach((element) => {
     cards(element)
 })
+
 
 goHome.addEventListener('click', () =>{
     location.reload();
