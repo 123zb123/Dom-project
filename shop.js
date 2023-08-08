@@ -35,11 +35,12 @@ data.forEach((element) => {
     cards(element)
 })
 
-
+//the button that return to the home page
 goHome.addEventListener('click', () =>{
     location.reload();
 })
 
+//the button that send to the add product page
 addProduct.addEventListener('click', () => {
     main.replaceChildren()
     const nav = document.getElementById('nav')
@@ -174,6 +175,7 @@ addProduct.addEventListener('click', () => {
 
 })
 
+//men's category button
 men.addEventListener('click', () => {
     main.replaceChildren()
     category("men's clothing")
@@ -184,6 +186,7 @@ men.addEventListener('click', () => {
     allProducts.style.background = '#FFBF9B'
 })
 
+//women's category button
 women.addEventListener('click', () => {
     main.replaceChildren()
     category("women's clothing")
@@ -194,6 +197,7 @@ women.addEventListener('click', () => {
     allProducts.style.background = '#FFBF9B'
 })
 
+//jewlery category button
 jewelery.addEventListener('click', () => {
     main.replaceChildren()
     category("jewelery")
@@ -204,6 +208,7 @@ jewelery.addEventListener('click', () => {
     allProducts.style.background = '#FFBF9B'
 })
 
+//electronics category button
 electronics.addEventListener('click', () => {
     main.replaceChildren()
     category("electronics")
@@ -214,6 +219,7 @@ electronics.addEventListener('click', () => {
     allProducts.style.background = '#FFBF9B'
 })
 
+//all products button
 allProducts.addEventListener('click', () => {
     main.replaceChildren()
     data.forEach(element => {
@@ -226,6 +232,7 @@ allProducts.addEventListener('click', () => {
     allProducts.style.background = '#ffdecb'
 })
 
+//the function return the spacific category
 function category(categoryName){
     main.replaceChildren()
     data.forEach(element => {
@@ -235,6 +242,7 @@ function category(categoryName){
     });
 }
 
+//the function create products cards
 function cards(element){
     const productCard = document.createElement('div');
     productCard.style.width = '200px'
@@ -317,6 +325,7 @@ function cards(element){
     main.appendChild(productCard);
 }   
 
+//create product page
 function prductPage(idElement){
     let shwoElement;
     data.forEach((elem) => {
@@ -419,6 +428,7 @@ function prductPage(idElement){
     quantityContent.style.marginTop = '6px'
 }
 
+//edit product page
 function editCard(IdElement){ 
 
     main.style.display = 'flex'
