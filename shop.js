@@ -1,5 +1,5 @@
 async function fetchData() {
-    const response = await fetch("https://coati-sweatsuit.cyclic.cloud/api/products");
+    const response = await fetch("https://ultramarine-earthworm-wig.cyclic.cloud/api/products");
     console.log(response);
     return await response.json();
 }
