@@ -562,7 +562,7 @@ function addProductButton() {
             image: imageInput.value
         }
         fetchAddProduct(addProductObject)
-        });
+        })
     }
 
 
