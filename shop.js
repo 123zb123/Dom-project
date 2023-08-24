@@ -1,10 +1,8 @@
 async function fetchData() {
     const response = await fetch("https://ultramarine-earthworm-wig.cyclic.cloud/api/products");
-    console.log(response);
     return await response.json();
 }
 const data = await fetchData();
-console.log(data)
 
 // main from html file
 let main = document.querySelector('main');
@@ -555,14 +553,28 @@ function addProductButton() {
     divInput.appendChild(buttonSend)
 
     buttonSend.addEventListener('click', () => {
-        data.push({
+        const addProductObject = {
             id: data.length + 1,
             title: titleInput.value,
             price: priceInput.value,
             description: descriptionInput.value,
             category: categoryInput.value,
             image: imageInput.value
-        })
-        console.log(data)
-    })
+        }
+        fetchAddProduct(addProductObject)
+        });
+    }
+
+
+
+async function fetchAddProduct(something) {
+    const response = await fetch("https://ultramarine-earthworm-wig.cyclic.cloud/api/products",
+    {
+        method: 'post',
+        body: JSON.stringify(addProductObject),
+        headers: {
+            "Content-Type": "application/json" // Specify that you're sending JSON data
+    }
+})
+console.log(response)
 }
