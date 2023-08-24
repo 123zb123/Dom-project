@@ -571,7 +571,7 @@ async function fetchAddProduct(something) {
     const response = await fetch("https://ultramarine-earthworm-wig.cyclic.cloud/api/products",
     {
         method: 'post',
-        body: JSON.stringify(addProductObject),
+        body: JSON.stringify(something),
         headers: {
             "Content-Type": "application/json" // Specify that you're sending JSON data
     }
