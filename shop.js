@@ -4,7 +4,7 @@ async function fetchData() {
     return data;
 }
 const data = await fetchData();
-
+console.log(data)
 
 // main from html file
 let main = document.querySelector('main');
