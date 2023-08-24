@@ -569,7 +569,7 @@ function addProductButton() {
 
 
 async function fetchAddProduct(something) {
-    const response = await fetch("https://ultramarine-earthworm-wig.cyclic.cloud/api/products",
+    const response = await fetch("https://ultramarine-earthworm-wig.cyclic.cloud/api/products/",
     {
         method: 'post',
         body: JSON.stringify(something),
