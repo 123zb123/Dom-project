@@ -1,5 +1,5 @@
 async function fetchData() {
-    const response = await fetch("https://ultramarine-earthworm-wig.cyclic.cloud/api/products");
+    const response = await fetch("https://example-store-service.onrender.com/api/products");
     return await response.json();
 }
 const data = await fetchData();
