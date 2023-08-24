@@ -561,6 +561,7 @@ function addProductButton() {
             category: categoryInput.value,
             image: imageInput.value
         }
+        console.log(addProductObject)
         fetchAddProduct(addProductObject)
         })
     }
