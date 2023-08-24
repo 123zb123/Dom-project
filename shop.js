@@ -1,4 +1,10 @@
-import data from './data.js'
+async function fetchData() {
+    const response = await fetch("http://localhost:8200/api/products");
+    const data = await response.json();
+    return data;
+}
+const data = await fetchData();
+
 
 // main from html file
 let main = document.querySelector('main');
@@ -21,10 +27,10 @@ const serch = document.querySelector('#serch')
 //searce product
 iconSerch.addEventListener('click', () => {
     main.replaceChildren()
-    data.forEach((element) => {
-        if (element.title.includes(serch.value)){
+    data?.forEach((element) => {
+        if (element.title.includes(serch.value)) {
             cards(element)
-            
+
         }
     });
     serch.value = ''
@@ -36,7 +42,7 @@ data.forEach((element) => {
 })
 
 //the button that return to the home page
-goHome.addEventListener('click', () =>{
+goHome.addEventListener('click', () => {
     location.reload();
 })
 addProduct.addEventListener('click', () => {
@@ -101,17 +107,17 @@ allProducts.addEventListener('click', () => {
 })
 
 //the function return the spacific category
-function category(categoryName){
+function category(categoryName) {
     main.replaceChildren()
     data.forEach(element => {
-        if (categoryName === element.category){
+        if (categoryName === element.category) {
             cards(element)
         }
     });
 }
 
 //the function create products cards
-function cards(element){
+function cards(element) {
     const productCard = document.createElement('div');
     productCard.style.width = '200px'
     productCard.style.height = '360px'
@@ -122,7 +128,7 @@ function cards(element){
     productCard.style.flexDirection = 'column'
     productCard.style.margin = '20px'
     productCard.style.background = 'white'
-    
+
     const productImage = document.createElement('img')
     productCard.appendChild(productImage)
     productImage.style.height = '50%'
@@ -134,7 +140,7 @@ function cards(element){
         nav.remove()
         main.replaceChildren()
         prductPage(element.id)
-        
+
     })
 
     const bottomCard = document.createElement('div')
@@ -149,20 +155,20 @@ function cards(element){
     bottomCard.appendChild(titleCard)
     titleCard.textContent = element.title
     titleCard.style.margin = '10px'
-    
+
     const lineBetween = document.createElement('div')
     bottomCard.appendChild(lineBetween)
     lineBetween.style.height = '2px'
     lineBetween.style.width = '80%'
     lineBetween.style.background = '#7c7b7b'
     lineBetween.style.margin = '10px'
-    
+
     const edidDelete = document.createElement('div')
     bottomCard.appendChild(edidDelete)
     edidDelete.style.display = 'flex'
     edidDelete.style.justifyContent = 'start'
     edidDelete.style.alignItems = 'center'
-    
+
     const bin = document.createElement('span')
     edidDelete.appendChild(bin)
     bin.id = 'bin'
@@ -171,14 +177,14 @@ function cards(element){
     bin.classList = 'editDelete'
     bin.addEventListener('click', () => {
         productCard.remove()
-        for(let i = 0; i < data.length; i++) {
-                if (element === data[i]){
-                    delete data[i] 
-                    console.log(data)
-                }
-            };
-        })
-    
+        for (let i = 0; i < data.length; i++) {
+            if (element === data[i]) {
+                delete data[i]
+                console.log(data)
+            }
+        };
+    })
+
     const edit = document.createElement('span')
     edidDelete.appendChild(edit)
     edit.innerHTML = '<i class="fa-solid fa-pen"></i>'
@@ -191,13 +197,13 @@ function cards(element){
     })
 
     main.appendChild(productCard);
-}   
+}
 
 //create product page
-function prductPage(idElement){
+function prductPage(idElement) {
     let shwoElement;
     data.forEach((elem) => {
-        if (elem.id === idElement){
+        if (elem.id === idElement) {
             shwoElement = elem
             return
         }
@@ -226,13 +232,13 @@ function prductPage(idElement){
     product.style.alignSelf = 'center'
     product.style.display = 'flex'
 
-   
+
     const divImage = document.createElement('div')
     divImage.style.background = 'white'
     divImage.style.width = '50%'
     divImage.style.borderRadius = '10px 0 0 10px'
     product.appendChild(divImage)
-    
+
     const productImage = document.createElement('img')
     divImage.appendChild(productImage)
     productImage.style.width = '100%'
@@ -297,7 +303,7 @@ function prductPage(idElement){
 }
 
 //edit product page
-function editCard(IdElement){ 
+function editCard(IdElement) {
 
     main.style.display = 'flex'
     main.style.flexDirection = 'column'
@@ -307,7 +313,7 @@ function editCard(IdElement){
     divUp.style.display = 'flex'
     divUp.style.alignItems = 'center'
     divUp.style.justifyContent = 'center'
-    
+
     const backHome = document.createElement('div')
     backHome.innerHTML = '<i class="fa-solid fa-arrow-left"></i>'
     backHome.style.cursor = 'pointer'
@@ -315,7 +321,7 @@ function editCard(IdElement){
     backHome.addEventListener('click', () => {
         location.reload()
     })
-    
+
     const h1 = document.createElement('h1')
     divUp.appendChild(h1)
     h1.textContent = 'Edit Product'
@@ -328,7 +334,7 @@ function editCard(IdElement){
     divInput.style.height = '350px'
     divInput.style.marginTop = '25px'
     divInput.style.marginBottom = '14vh'
-    
+
     const title = document.createElement('h4')
     title.textContent = 'Title'
     title.style.marginTop = '10px'
@@ -416,12 +422,12 @@ function editCard(IdElement){
 
     buttonSend.addEventListener('click', () => {
         data.forEach((element) => {
-            if (element.id === IdElement){
+            if (element.id === IdElement) {
                 element.title = titleInput.value,
-                element.price = priceInput.value,
-                element.description = descriptionInput.value,
-                element.category = categoryInput.value,
-                element.image = imageInput.value
+                    element.price = priceInput.value,
+                    element.description = descriptionInput.value,
+                    element.category = categoryInput.value,
+                    element.image = imageInput.value
             }
         });
         console.log(data)
@@ -430,7 +436,7 @@ function editCard(IdElement){
 }
 
 //the button that send to the add product page
-function addProductButton ()  {
+function addProductButton() {
     main.replaceChildren()
     const nav = document.getElementById('nav')
     main.style.display = 'flex'
@@ -441,7 +447,7 @@ function addProductButton ()  {
     divUp.style.display = 'flex'
     divUp.style.alignItems = 'center'
     divUp.style.justifyContent = 'center'
-    
+
     const backHome = document.createElement('div')
     backHome.innerHTML = '<i class="fa-solid fa-arrow-left"></i>'
     backHome.style.cursor = 'pointer'
@@ -449,7 +455,7 @@ function addProductButton ()  {
     backHome.addEventListener('click', () => {
         location.reload()
     })
-    
+
     const h1 = document.createElement('h1')
     divUp.appendChild(h1)
     h1.textContent = 'Add New Product'
@@ -462,7 +468,7 @@ function addProductButton ()  {
     divInput.style.height = '350px'
     divInput.style.marginTop = '25px'
     divInput.style.marginBottom = '14vh'
-    
+
     const title = document.createElement('h4')
     title.textContent = 'Title'
     title.style.marginTop = '10px'
