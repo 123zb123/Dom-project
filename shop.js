@@ -1,6 +1,6 @@
 async function fetchData() {
     const response = await fetch("https://coati-sweatsuit.cyclic.cloud",{mode : 'no-cors'});
-    const data = await response.json();
+    const data = await response
     return data;
 }
 const data = await fetchData();
