@@ -36,7 +36,9 @@ iconSerch.addEventListener('click', () => {
 
 //run hover the data of products
 data.forEach((element) => {
-    cards(element)
+    if (element !== null){
+        cards(element)
+    }
 })
 
 //the button that return to the home page
@@ -175,13 +177,8 @@ function cards(element) {
     bin.classList = 'editDelete'
     bin.addEventListener('click', () => {
         fethchDeleteData(element.id)
-        // productCard.remove()
-        // for (let i = 0; i < data.length; i++) {
-        //     if (element === data[i]) {
-        //         delete data[i]
-        //         console.log(data)
-        //     }
-        // };
+        productCard.remove()
+
     })
 
     const edit = document.createElement('span')
