@@ -427,6 +427,7 @@ function editCard(idElement) {
                     image : imageInput.value
                 }
                 fetchUpdateProduct(updateData, idElement)
+                console.log(updateData)
                 // location.reload()
             }
         });
