@@ -427,7 +427,7 @@ function editCard(idElement) {
                     image : imageInput.value
                 }
                 fetchUpdateProduct(updateData, idElement)
-                location.reload()
+                // location.reload()
             }
         });
     })
