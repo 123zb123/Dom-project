@@ -175,7 +175,7 @@ function cards(element) {
     bin.classList = 'editDelete'
     bin.addEventListener('click', () => {
         fethchDeleteData(element.id)
-        productCard.remove()
+        // productCard.remove()
         // for (let i = 0; i < data.length; i++) {
         //     if (element === data[i]) {
         //         delete data[i]
