@@ -174,13 +174,14 @@ function cards(element) {
     bin.style.margin = '10px'
     bin.classList = 'editDelete'
     bin.addEventListener('click', () => {
+        fethchDeleteData(element.id)
         productCard.remove()
-        for (let i = 0; i < data.length; i++) {
-            if (element === data[i]) {
-                delete data[i]
-                console.log(data)
-            }
-        };
+        // for (let i = 0; i < data.length; i++) {
+        //     if (element === data[i]) {
+        //         delete data[i]
+        //         console.log(data)
+        //     }
+        // };
     })
 
     const edit = document.createElement('span')
@@ -563,19 +564,30 @@ function addProductButton() {
         }
         console.log(addProductObject)
         fetchAddProduct(addProductObject)
-        })
-    }
+    })
+}
 
 
 
 async function fetchAddProduct(something) {
     const response = await fetch("https://example-store-service.onrender.com/api/products/",
-    {
-        method: 'post',
-        body: JSON.stringify(something),
-        headers: {
-            "Content-Type": "application/json" // Specify that you're sending JSON data
-    }
-})
-console.log(response)
+        {
+            method: 'post',
+            body: JSON.stringify(something),
+            headers: {
+                "Content-Type": "application/json" // Specify that you're sending JSON data
+            }
+        })
+    console.log(response);
 }
+
+async function fethchDeleteData(idToDelete) {
+    const response = await fetch(`https://example-store-service.onrender.com/api/products/${idToDelete}`,
+        {
+            method: 'delete',
+        }
+
+    )
+    console.log(response);
+}
+
