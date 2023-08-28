@@ -36,7 +36,7 @@ iconSerch.addEventListener('click', () => {
 
 //run hover the data of products
 data.forEach((element) => {
-    if (element !== null){
+    if (element !== null) {
         cards(element)
     }
 })
@@ -163,14 +163,14 @@ function cards(element) {
     lineBetween.style.background = '#7c7b7b'
     lineBetween.style.margin = '10px'
 
-    const edidDelete = document.createElement('div')
-    bottomCard.appendChild(edidDelete)
-    edidDelete.style.display = 'flex'
-    edidDelete.style.justifyContent = 'start'
-    edidDelete.style.alignItems = 'center'
+    const editDelete = document.createElement('div')
+    bottomCard.appendChild(editDelete)
+    editDelete.style.display = 'flex'
+    editDelete.style.justifyContent = 'start'
+    editDelete.style.alignItems = 'center'
 
     const bin = document.createElement('span')
-    edidDelete.appendChild(bin)
+    editDelete.appendChild(bin)
     bin.id = 'bin'
     bin.innerHTML = '<i class="fa-solid fa-trash"></i>'
     bin.style.margin = '10px'
@@ -182,7 +182,7 @@ function cards(element) {
     })
 
     const edit = document.createElement('span')
-    edidDelete.appendChild(edit)
+    editDelete.appendChild(edit)
     edit.innerHTML = '<i class="fa-solid fa-pen"></i>'
     edit.classList = 'editDelete'
     edit.addEventListener('click', () => {
@@ -299,7 +299,7 @@ function prductPage(idElement) {
 }
 
 //edit product page
-function editCard(IdElement) {
+function editCard(idElement) {
 
     main.style.display = 'flex'
     main.style.flexDirection = 'column'
@@ -418,15 +418,18 @@ function editCard(IdElement) {
 
     buttonSend.addEventListener('click', () => {
         data.forEach((element) => {
-            if (element.id === IdElement) {
-                element.title = titleInput.value,
-                    element.price = priceInput.value,
-                    element.description = descriptionInput.value,
-                    element.category = categoryInput.value,
-                    element.image = imageInput.value
+            if (element.id === idElement) {
+                const updateData = {
+                    title : titleInput.value,
+                    price : priceInput.value,
+                    description : descriptionInput.value,
+                    category : categoryInput.value,
+                    image : imageInput.value
+                }
+                fetchUpdateProduct(updateData, idElement)
+                location.reload()
             }
         });
-        console.log(data)
     })
 
 }
@@ -588,3 +591,14 @@ async function fethchDeleteData(idToDelete) {
     console.log(response);
 }
 
+async function fetchUpdateProduct(something, idToUpdate) {
+    const response = await fetch(`https://example-store-service.onrender.com/api/products/${idToUpdate}`,
+        {
+            method: 'patch',
+            body: JSON.stringify(something),
+            headers: {
+                "Content-Type": "application/json" // Specify that you're sending JSON data
+            }
+        })
+    console.log(response);
+}
